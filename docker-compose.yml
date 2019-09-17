@@ -1,0 +1,30 @@
+version: '3.5'
+
+services:
+  postgres:
+    image: postgres
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+      PGDATA: /data/postgres
+    volumes:
+       - postgres:/data/postgres
+    ports:
+      - "5432"
+    restart: unless-stopped
+  
+  pgadmin:
+    image: dpage/pgadmin4
+    environment:
+      PGADMIN_DEFAULT_EMAIL: ${PGADMIN_DEFAULT_USERNAME}
+      PGADMIN_DEFAULT_PASSWORD: ${PGADMIN_DEFAULT_PASSWORD}
+    volumes:
+       - pgadmin:/root/.pgadmin
+       - ./servers.json:/pgadmin4/servers.json
+    ports:
+      - "${PGADMIN_PORT}:80"
+    restart: unless-stopped
+
+volumes:
+    postgres:
+    pgadmin:
