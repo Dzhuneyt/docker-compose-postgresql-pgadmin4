@@ -19,4 +19,7 @@ jobs:
           name: Build and push Docker image
           command: |
             set -x
-            docker-compose build
+            docker-compose up -d
+
+
+# TODO ping both servers when they are booted
