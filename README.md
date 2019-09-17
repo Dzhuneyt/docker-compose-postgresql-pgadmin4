@@ -1,5 +1,7 @@
 # PostgreSQL and pgAdmin4, powered by Docker Compose
 
+[![CircleCI](https://circleci.com/gh/Dzhuneyt/docker-compose-postgresql-pgadmin4.svg?style=svg)](https://circleci.com/gh/Dzhuneyt/docker-compose-postgresql-pgadmin4)
+
 A simple Docker Compose stack with 2 services:
 - **PostgreSQL** database with mounted volume (data is persisted)
 - **pgAdmin4** to administer the database through the UI (on a port defined in .env)
