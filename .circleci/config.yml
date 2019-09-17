@@ -1,0 +1,15 @@
+version: 2
+jobs:
+  build:
+    docker:
+      # using custom image, see .circleci/images/primary/Dockerfile
+      - image: circleci/cci-demo-docker-primary:0.0.2
+    working_directory: ~/repo # Default working directory, where your project will be cloned
+
+    steps:
+      - checkout
+      - setup_remote_docker
+      - deploy:
+          name: Build and push Docker image
+          command: |
+            docker-compose build
